@@ -21,16 +21,16 @@ public class Diffie
         int b = inputScanner.nextInt();
         int A = 1, B = 1;
         for(int i = 0; i < a; i++)
-            A = (A * g) % p;
+            A = (A * g) % p;//(g^a)%p
         for(int i = 0; i < b; i++)
-            B = (B * g) % p;
+            B = (B * g) % p;//(g^b)%p
         System.out.println("User A sends public A = " + A + " to user B");
         System.out.println("User B sends public B = " + B + " to user A");
         int Ka = 1, Kb = 1;
         for(int i = 0; i < a; i++)
-            Ka = (Ka * B) % p;
+            Ka = (Ka * B) % p;//(B^a)%p
         for(int i = 0; i < b; i++)
-            Kb = (Kb * A) % p;
+            Kb = (Kb * A) % p;//(A^b)%p
         System.out.println("User A calculates shared secret K = " + Ka);
         System.out.println("User B calculates shared secret K = " + Kb);
     }
